@@ -10,29 +10,55 @@ Deckard Zhao 12/10/2021
 #include <iostream>
 using namespace std;
 
-int plus(int num1, int num2)
+int funcPlus(int num1, int num2)
 {
     return num1 + num2;
 }
 
-int minus(int num1, int num2)
+int funcMinus(int num1, int num2)
 {
     return num1 - num2;
 }
 
-int product(int num1, int num2)
+int funcProduct(int num1, int num2)
 {
     return num1 * num2;
 }
 
-int quotient(int num1, int num2)
+int funcQuotient(int num1, int num2)
 {
     return num1 / num2;
 }
 
 int main()
 {
-
+    int num1, num2;
+    char oprt;
     cout << "Please enter two numbers: " << endl;
+    cin >> num1 >> num2;
+    cout << "Please enter a math operator (+ - * /):" << endl;
+    cin >> oprt;
+    cout << "The result is:";
+
+    switch (oprt)
+    {
+    case '+':
+        cout << funcPlus(num1, num2);
+        break;
+    case '-':
+        cout << funcMinus(num1, num2);
+        break;
+    case '*':
+        cout << funcProduct(num1, num2);
+        break;
+    case '/':
+        cout << funcQuotient(num1, num2);
+        break;
+    default:
+        cout << "Illegal operator!";
+        break;
+    }
+    cout << endl;
+
     return 0;
 }
