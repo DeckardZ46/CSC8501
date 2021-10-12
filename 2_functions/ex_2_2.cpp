@@ -8,3 +8,23 @@ Deckard 08/10/2021
 */
 #include <iostream>
 using namespace std;
+
+double quotient(double num1, int num2)
+{
+    double result = num1 / num2;
+    return result;
+}
+
+int main()
+{
+    double num1;
+    int num2;
+    cout << "Please enter num1:" << endl;
+    cin >> num1;
+    cout << "Please enter num2:" << endl;
+    cin >> num2;
+
+    double result = quotient(num1, num2);
+    cout << "The result is: " << result << endl;
+    return 0;
+}
