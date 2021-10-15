@@ -24,13 +24,18 @@ struct node
     struct node *left;
     struct node *right;
 };
-struct node *root = NULL;
+struct node *root = nullptr;
 
 // implement the functions described by these headers
 void insert_integer(struct node **tree, int value)
 {
-    if (tree == NULL)
+    if ((*tree) == nullptr)
+    {
         *tree = new node;
+        (*tree)->value = value;
+        (*tree)->left = nullptr;
+        (*tree)->right = nullptr;
+    }
 
     else if (value <= (*tree)->value)
         insert_integer(&(*tree)->left, value);
@@ -42,16 +47,26 @@ void insert_integer(struct node **tree, int value)
 }
 void print_tree(struct node *tree) //todo
 {
-    if (tree->left != NULL)
+    if (tree->left != nullptr)
         print_tree(tree->left);
-    else
-        cout << tree->value << " " << endl;
-    if (tree->right != NULL)
+
+    cout << tree->value << " ";
+
+    if (tree->right != nullptr)
         print_tree(tree->right);
 }
 
 void terminate_tree(struct node *tree) // todo
 {
+    if (tree->left != nullptr)
+        terminate_tree(tree->left);
+    if (tree->right != nullptr)
+        terminate_tree(tree->right);
+    else
+    {
+        delete tree;
+        tree = nullptr;
+    }
     return;
 }
 
@@ -77,6 +92,7 @@ int main()
     }
 
     print_tree(root);
+    cout << endl;
     terminate_tree(root);
     return 0;
 }
