@@ -40,7 +40,7 @@ void insert_integer(struct node **tree, int value)
     else
         cout << "Value is illegal! value is " << value << endl;
 }
-void print_tree(struct node *tree)
+void print_tree(struct node *tree) //todo
 {
     if (tree->left != NULL)
         print_tree(tree->left);
@@ -50,7 +50,7 @@ void print_tree(struct node *tree)
         print_tree(tree->right);
 }
 
-void terminate_tree(struct node *tree)
+void terminate_tree(struct node *tree) // todo
 {
     return;
 }
